@@ -1,0 +1,11 @@
+﻿{% extends "base.html" %}
+
+{% block content %}
+<h2>The place where Your shooting dreams come true!</h2>
+    {% block description_text %}
+        {% for description in description_text %}
+            <h3>{{ description.title }}</h3>
+            <p>{{ description.description }}</p>
+        {% endfor %}
+    {% endblock description_text %}
+{% endblock content %}    
