@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="mt-5">
+    <h2>Our weapons for hire</h2>
+</div>
+<div class="row">
+    {% for weapon in weapons %}
+    <div class="col-md-4">
+        <div class="card mb-2">
+            {% if weapon.image %}
+            <img class="card-img-top" src="{{ weapon.image.url }}" alt="{{ weapon.model }}">
+            {% endif %}
+            <div class="card-body">
+                <h5 class="card-title">{{ weapon.manufacturer }} {{ weapon.model }}</h5>
+                <button type="button" class="btn btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#weaponModal{{ weapon.id }}">
+                    Detail
+                </button>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% for weapon in weapons %}
+<div class="modal fade" id="weaponModal{{ weapon.id }}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h4 class="modal-title">{{ weapon.manufacturer }} {{ weapon.model }}</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+
+            <div class="modal-body">
+                <img src="{{ weapon.image.url }}" alt="{{ weapon.model }}" width="100%">
+                <p><h5>Caliber:</h5>{{ weapon.caliber }}</p>
+                <p><h5>Description:</h5>{{ weapon.description }}</p>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<div class="d-flex justify-content-center mt-4">
+    <ul class="pagination">
+        {% for page_number in weapons.paginator.page_range %}
+            <li class="page-item {% if weapons.number == page_number %}active{% endif %}">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock content %}

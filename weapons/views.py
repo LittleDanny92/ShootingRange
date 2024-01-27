@@ -1,16 +1,21 @@
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 from weapons.models import Weapon
 
 def weapon_index(request):
     weapons = Weapon.objects.all()
-    context = {
-        "weapons": weapons    
-    }
-    return render(request, "weapons/weapons_index.html", context)
+    page = request.GET.get("page", 1)
 
-def weapon_detail(request, pk):
-    weapons = Weapon.objects.get(pk=pk)
+    paginator = Paginator(weapons, 9)
+
+    try:
+        weapons = paginator.page(page)
+    except PageNotAnInteger:
+        weapons = paginator.page(1)
+    except EmptyPage:
+        weapons = paginator.page(paginator.num_pages)
+    
     context = {
         "weapons": weapons    
     }
-    return render(request, "weapons/weapons_index.html", context)
+    return render(request, "weapons/weapons.html", context)

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="mt-5">
+    {% for contact in entire_contact %}
+        <h4>Company Address</h4>
+        <p><h6>{{ contact.company_name }}</h6></p>
+        <p><h6>{{ contact.address }}</h6></p>
+        <h4>Phone number</h4>
+        <p><h6>{{ contact.phone_number }}</h6></p>
+    {% endfor %}
+</div>
+<div class="mt-3">
+    <h2>Leave us the message:</h2>
+    <form action="#">
+        <div class="mb-3 mt-3 me-5">
+        <textarea class="form-control" rows="5" id="message" name="message"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline-secondary">Submit</button>
+    </form>
+
+</div>
+{% endblock content %}

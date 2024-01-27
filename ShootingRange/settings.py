@@ -33,7 +33,9 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'bootstrap5',
     'description.apps.DescriptionConfig',
+    'carousel.apps.CarouselConfig',
     'weapons.apps.WeaponsConfig',
+    'contact.apps.ContactConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

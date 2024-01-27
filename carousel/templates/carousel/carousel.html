@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block carousel %}
+        {% for carousel_item in carousel_items %}
+            {% if forloop.first %}
+                <div class="carousel-item  active">
+            {% else %}
+                <div class="carousel-item">    
+            {% endif %}
+                {% if carousel_item.image %}
+                    <img src="{{ carousel_item.image.url }}" alt="{{ carousel_item.caption }}" class="d-block w-100">
+                {% endif %}
+                </div>
+        {% endfor %}
+{% endblock carousel %}

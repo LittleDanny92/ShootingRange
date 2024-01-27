@@ -1,8 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\description\\templates\\description"
+    "\\contact",
+    "\\contact\\templates",
+    "\\contact\\templates\\contact",
+    "\\ShootingRange",
+    "\\weapons",
+    "\\weapons\\templates",
+    "\\weapons\\templates\\weapons"
   ],
-  "SelectedNode": "\\description",
+  "SelectedNode": "\\weapons\\templates\\weapons\\weapons.html",
   "PreviewInSolutionExplorer": false
 }
