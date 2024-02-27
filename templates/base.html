@@ -173,6 +173,10 @@
             border: solid 1px #757575 !Important;
         }
 
+        .table-cell {
+            width: 50%;
+        }
+
     </style>
     <title>
     </title>
@@ -180,7 +184,7 @@
     {% bootstrap_css %}
     {% bootstrap_javascript %}
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <div class="offcanvas offcanvas-start bg-dark" id="SideMenu">
         <div class="offcanvas-header">
             <h1 class="offcanvas-title">SideMenu</h1>
@@ -199,17 +203,17 @@
                         <a class="nav-link" href="#">Reservation</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Price List</a>
+                        <a class="nav-link" href="{% url 'get_prices' %}">Price List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'get_contact' %}">Contact</a>
+                        <a class="nav-link" href="{% url 'leave_message' %}">Contact</a>
                     </li>
                 </ul>
             </nav>
         </div>
     </div>
 
-    <div class="container-fluid">
+    <div class="container-fluid wrapper">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <div class="carousel-indicators">
                 <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
@@ -233,6 +237,11 @@
             {% endblock %}
         </div>
     </div>
-
+    <footer class="text-center text-white bg-dark mt-auto">
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2024 Copyright:
+            <a class="text-white" href="#">ShootingRange.com</a>
+        </div>
+    </footer>
 </body>
 </html>

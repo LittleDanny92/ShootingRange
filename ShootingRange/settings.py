@@ -36,6 +36,7 @@ INSTALLED_APPS = [
     'carousel.apps.CarouselConfig',
     'weapons.apps.WeaponsConfig',
     'contact.apps.ContactConfig',
+    'prices.apps.PricesConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -134,3 +135,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = BASE_DIR / 'uploads/'
 
 MEDIAL_URL = 'media/'
+
+MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.seznam.cz'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_HOST_USER = 'HlavackaDanielml@seznam.cz'
+EMAIL_HOST_PASSWORD = 'Wert14her+'
