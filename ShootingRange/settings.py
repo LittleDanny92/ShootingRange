@@ -136,11 +136,11 @@ MEDIA_ROOT = BASE_DIR / 'uploads/'
 
 MEDIAL_URL = 'media/'
 
-MESSAGE_STORAGE = "django.contrib.messages.storage.cookie.CookieStorage"
+MESSAGE_STORAGE = "django.contrib.messages.storage.session.SessionStorage"
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.seznam.cz'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
 EMAIL_HOST_USER = 'HlavackaDanielml@seznam.cz'
-EMAIL_HOST_PASSWORD = 'Wert14her+'
+EMAIL_HOST_PASSWORD = 'Emil24NvPSWrd20_21+'

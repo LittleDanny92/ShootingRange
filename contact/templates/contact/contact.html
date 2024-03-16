@@ -1,41 +1,40 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="mt-5">
+
+<div class=" container-fluid mt-5">
     <h4><b>Company Address</b></h4>
     <p><h6>Shooting Under the Tree</h6></p>
     <p><h6>WonderStrasse 1234, 000 01 Wonderland</h6></p>
     <h4><b>Phone number</b></h4>
     <p><h6>+123 456 789 123</h6></p>
 </div>
-<div class="mt-3">
+
+<div class=" container-fluid pb-3 mt-3">
     <h2>Leave us the message:</h2>
-    <form method="post" action=".">
+    <form id="ContactForm" method="post" action="." novalidate>
         {% csrf_token %}
-        {{ form.as_p }}
-        <button class="btn btn-outline-secondary" type="submit">Submit</button>
-    </form>
-    {% if messages %}
-    <div class="modal fade">
-        <div class="modal-dialog">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h4 class="modal-title">Modal Heading</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                </div>
-
-                <div class="modal-body">
-                    {% for message in messages %}
-                        {{ message }}  
-                    {% endfor %}
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-                </div>
+        {% for field in form %}
+        <div class="form-group {% if field.errors %}has-error{% endif %}">
+            {% if field.errors %}
+            <div class="error-msg">
+                {% for error in field.errors %}
+                <span class="error">{{ error }}</span>
+                {% endfor %}
             </div>
+            {% endif %}
+            <p>{{ field }}</p>
         </div>
-    </div>
-    {% endif %}
+        {% endfor %}
+        <button type="submit" class="btn btn-outline-secondary">Submit</button>
+    </form>
 </div>
+
+{% if messages %}
+    {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}" role="alert">
+                <strong>Thank You!</strong> {{ message }}
+            </div>
+    {% endfor %}
+{% endif %}
+
 {% endblock content %}

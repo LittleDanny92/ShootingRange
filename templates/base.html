@@ -8,8 +8,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css"-->
-    <!--link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css" /-->
     <style>
 
         .d-block {
@@ -177,6 +175,18 @@
             width: 50%;
         }
 
+        .error-msg {
+            color: red;
+            font-size: 12px;
+            font-weight: bold;
+            margin-top: 5px;
+        }
+
+        .has-error input,
+        .has-error textarea {
+            border-color: red;
+        }
+
     </style>
     <title>
     </title>
@@ -214,16 +224,8 @@
     </div>
 
     <div class="container-fluid wrapper">
-        <div id="myCarousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2"></button>
-            </div>
-            <div class="carousel-inner">
-                {% block carousel %}
-                {% endblock %}
-            </div>
+        <div>
+            
         </div>
         <div>
             <button class="hamburger animated fadeInLeft is-closed" type="button" data-bs-toggle="offcanvas" data-bs-target="#SideMenu">
@@ -236,7 +238,8 @@
             {% block content %}
             {% endblock %}
         </div>
-    </div>
+    </div
+>
     <footer class="text-center text-white bg-dark mt-auto">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2024 Copyright:
