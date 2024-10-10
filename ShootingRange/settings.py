@@ -33,7 +33,6 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     'bootstrap5',
     'home.apps.HomeConfig',
-    'description.apps.DescriptionConfig',
     'reservation_form.apps.ReservationFormConfig',
     'weapons.apps.WeaponsConfig',
     'contact.apps.ContactConfig',
