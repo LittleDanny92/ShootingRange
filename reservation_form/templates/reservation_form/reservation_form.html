@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h3><b>Booking system</b></h3>
+</div>
+<div class="container mt-5">
+    <form id="BookingForm" method="post" action="" novalidate autocomplete="off">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="row mb-4">
+                <div class="col-4 col-md-3">
+                    {{ form.date_dropdown }}
+                </div>
+                <div class="col-4 col-md-3">
+                    {{ form.time_dropdown }}
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-4 col-md-3 custom-checkbox">
+                    {{ form.instructor.label_tag }}
+                    {{ form.instructor }}
+                </div>
+                <div class="col-4 col-md-3">
+                    {{ form.weapon }}
+                </div>
+            </div>
+            <div class="row mb-4">
+                <div class="col-4 col-md-3 {% if form.name.errors %}has-error{% endif %}">
+                    {% if form.name.errors %}
+                    <div class="error-msg">
+                        {% for error in form.name.errors %}
+                        <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {{ form.name }}
+                </div>
+                <div class="col-4 col-md-3 {% if form.email.errors %}has-error{% endif %}">
+                    {% if form.email.errors %}
+                    <div class="error-msg">
+                        {% for error in form.email.errors %}
+                        <span class="error">{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                    {% endif %}
+                    {{ form.email }}
+                </div>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-outline-secondary mb-4">Confirm</button>
+    </form>
+</div>
+
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert alert-{{ message.tags }}" role="alert">
+            <strong>{{ message }}</strong>
+        </div>
+    {% endfor %}
+{% endif %}
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+
+    function loadAvailableTimes(selectedDate) {
+        $.ajax({
+            url: "{% url 'get_available_times' %}",
+            data: {
+                'date': selectedDate
+            },
+            success: function (response) {
+                var timeDropdown = $('#id_time_dropdown');
+                timeDropdown.empty();
+
+                if (response.available_times.length > 0) {
+                    $.each(response.available_times, function (index, value) {
+                        timeDropdown.append($('<option></option>').attr('value', value).text(value));
+                    });
+                }
+            }
+        });
+    }
+    $(document).ready(function () {
+        var defaultSelectedDate = $('#id_date_dropdown').val();
+        if (defaultSelectedDate) {
+            loadAvailableTimes(defaultSelectedDate);
+        }
+
+        $('#id_date_dropdown').change(function () {
+            var selectedDate = $(this).val();
+            loadAvailableTimes(selectedDate);
+        });
+    });
+</script>
+
+{% endblock content %}

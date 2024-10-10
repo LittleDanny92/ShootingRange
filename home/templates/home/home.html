@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="row mt-4 p-5 bg-secondary text-white">
+        <div class="col-7">
+            <h2><b>NEW EXPERIENCES ARE WAITING!</b></h2>
+            <h4>We can make Your shooting dreams come true.</h4>
+        </div>
+        <div class="col-5">
+            <img class="img-fluid rounded" src="{{ main_ilustration.image.url }}" alt="first ilustration">
+        </div>
+    </div>
+    <div class="row p-5 bg-dark text-white">
+        <div class="col-7">
+            <img class="img-fluid rounded" src="{{ xxx }}" alt="second ilustration">
+        </div>
+        <div class="col-5">
+            <h5>In our place You can look forward to:</h5>
+            <ul>
+                <li><h6>Modern spaces</h6></li>
+                <li><h6>Great and friendly instructors</h6></li>
+                <li><h6>Lots of guns...</h6></li>
+                <li><h6>and even more ammo!</h6></li>
+            </ul>
+        </div>
+    </div>
+{% endblock content %}

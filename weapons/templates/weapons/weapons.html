@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="mt-5">
+<div class="container mt-5">
     <h3><b>Our weapons for rent</b></h3>
 </div>
 <div class="row">
@@ -24,7 +24,7 @@
 
 {% for weapon in weapons %}
 <div class="modal fade" id="weaponModal{{ weapon.id }}">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
 
             <div class="modal-header">

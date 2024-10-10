@@ -32,8 +32,9 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'bootstrap5',
+    'home.apps.HomeConfig',
     'description.apps.DescriptionConfig',
-    'carousel.apps.CarouselConfig',
+    'reservation_form.apps.ReservationFormConfig',
     'weapons.apps.WeaponsConfig',
     'contact.apps.ContactConfig',
     'prices.apps.PricesConfig',
@@ -125,7 +126,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
+STATICFILES_DIRS = [BASE_DIR / "static"]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -142,5 +144,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.seznam.cz'
 EMAIL_PORT = 465
 EMAIL_USE_SSL = True
-EMAIL_HOST_USER = 'HlavackaDanielml@seznam.cz'
-EMAIL_HOST_PASSWORD = 'Emil24NvPSWrd20_21+'
+EMAIL_HOST_USER = 'XXXX'
+EMAIL_HOST_PASSWORD = 'XXXX'

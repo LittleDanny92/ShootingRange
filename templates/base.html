@@ -3,196 +3,16 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-
-    {% load static %}
-    <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <style>
-
-        .d-block {
-            padding: 0px;
-            height: 250px;
-        }
-
-        .hamburger {
-            position: fixed;
-            top: 20px;
-            z-index: 999;
-            display: block;
-            width: 32px;
-            height: 32px;
-            margin-left: 15px;
-            background: transparent;
-            border: none;
-        }
-
-        .hamburger:hover,
-        .hamburger:focus,
-        .hamburger:active {
-            outline: none;
-        }
-
-        .hamburger.is-closed:before {
-            content: '';
-            display: block;
-            width: 100px;
-            font-size: 14px;
-            color: #fff;
-            line-height: 32px;
-            text-align: center;
-            opacity: 0;
-            -webkit-transform: translate3d(0,0,0);
-            -webkit-transition: all .35s ease-in-out;
-        }
-
-        .hamburger.is-closed:hover:before {
-            opacity: 1;
-            display: block;
-            -webkit-transform: translate3d(-100px,0,0);
-            -webkit-transition: all .35s ease-in-out;
-        }
-
-        .hamburger.is-closed .hamb-top,
-        .hamburger.is-closed .hamb-middle,
-        .hamburger.is-closed .hamb-bottom,
-        .hamburger.is-open .hamb-top,
-        .hamburger.is-open .hamb-middle,
-        .hamburger.is-open .hamb-bottom {
-            position: absolute;
-            left: 0;
-            height: 4px;
-            width: 100%;
-        }
-
-        .hamburger.is-closed .hamb-top,
-        .hamburger.is-closed .hamb-middle,
-        .hamburger.is-closed .hamb-bottom {
-            background-color: #1a1a1a;
-        }
-
-        .hamburger.is-closed .hamb-top {
-            top: 5px;
-            -webkit-transition: all .35s ease-in-out;
-        }
-        .hamburger.is-closed .hamb-middle {
-                top: 50%;
-                margin-top: -2px;
-        }
-
-        .hamburger.is-closed .hamb-bottom {
-            bottom: 5px;
-            -webkit-transition: all .35s ease-in-out;
-        }
-
-        .hamburger.is-closed:hover .hamb-top {
-            top: 0;
-            -webkit-transition: all .35s ease-in-out;
-        }
-
-        .hamburger.is-closed:hover .hamb-bottom {
-            bottom: 0;
-            -webkit-transition: all .35s ease-in-out;
-        }
-
-        .hamburger.is-open .hamb-top,
-        .hamburger.is-open .hamb-middle,
-        .hamburger.is-open .hamb-bottom {
-            background-color: #1a1a1a;
-        }
-
-        .hamburger.is-open .hamb-top,
-        .hamburger.is-open .hamb-bottom {
-            top: 50%;
-            margin-top: -2px;
-        }
-        
-        .hamburger.is-open .hamb-top {
-            -webkit-transform: rotate(45deg);
-            -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
-        }
-
-        .hamburger.is-open .hamb-middle {
-            display: none;
-        }
-        
-        .hamburger.is-open .hamb-bottom {
-            -webkit-transform: rotate(-45deg);
-            -webkit-transition: -webkit-transform .2s cubic-bezier(.73,1,.28,.08);
-        }
-
-        .hamburger.is-open:before {
-            content: '';
-            display: block;
-            width: 100px;
-            font-size: 14px;
-            color: #fff;
-            line-height: 32px;
-            text-align: center;
-            opacity: 0;
-            -webkit-transform: translate3d(0,0,0);
-            -webkit-transition: all .35s ease-in-out;
-        }
-
-        .hamburger.is-open:hover:before {
-            opacity: 1;
-            display: block;
-            -webkit-transform: translate3d(-100px,0,0);
-            -webkit-transition: all .35s ease-in-out;
-        }
-
-        .card {
-            width: 100%;
-        }
-
-        .card-img-top {
-            width: 100%;
-            height: auto;
-            object-fit: cover;
-        }
-
-        .pagination li a {
-            background-color: white;
-            color: #757575;
-        }
-
-        .pagination li a:focus,
-        .pagination li a:hover,
-        .pagination li span:focus,
-        .pagination li span:hover {
-            color: #757575;
-            background-color: #eee;
-            border-color: #757575;
-        }
-
-        .pagination > .active > a {
-            color: white;
-            background-color: #757575 !Important;
-            border: solid 1px #757575 !Important;
-        }
-
-        .table-cell {
-            width: 50%;
-        }
-
-        .error-msg {
-            color: red;
-            font-size: 12px;
-            font-weight: bold;
-            margin-top: 5px;
-        }
-
-        .has-error input,
-        .has-error textarea {
-            border-color: red;
-        }
-
-    </style>
     <title>
     </title>
+
     {% load bootstrap5 %}
     {% bootstrap_css %}
     {% bootstrap_javascript %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/SR_style.css' %}">
 </head>
 <body class="d-flex flex-column min-vh-100">
     <div class="offcanvas offcanvas-start bg-dark" id="SideMenu">
@@ -204,13 +24,13 @@
             <nav class="navbar bg-dark navbar-dark">
                 <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="{% url 'home' %}">Home</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'weapon_index' %}">Our Guns</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Reservation</a>
+                        <a class="nav-link" href="{% url 'visit_booking' %}">Reservation</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'get_prices' %}">Price List</a>
@@ -225,9 +45,6 @@
 
     <div class="container-fluid wrapper">
         <div>
-            
-        </div>
-        <div>
             <button class="hamburger animated fadeInLeft is-closed" type="button" data-bs-toggle="offcanvas" data-bs-target="#SideMenu">
                 <span class="hamb-top"></span>
                 <span class="hamb-middle"></span>
@@ -238,13 +55,18 @@
             {% block content %}
             {% endblock %}
         </div>
-    </div
->
+    </div>
     <footer class="text-center text-white bg-dark mt-auto">
         <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-            © 2024 Copyright:
-            <a class="text-white" href="#">ShootingRange.com</a>
+            © <span id="current-year"></span> Copyright:
+            <a class="text-white" href="{% url 'home' %}">ShootingRange.com</a>
         </div>
     </footer>
+
+    <script>
+        const year = new Date().getFullYear();
+        document.getElementById('current-year').textContent = year;
+    </script>
+
 </body>
 </html>

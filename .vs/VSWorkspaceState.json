@@ -1,9 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\contact",
-    "\\contact\\templates\\contact"
+    "\\ShootingRange"
   ],
-  "SelectedNode": "\\contact\\admin.py",
+  "SelectedNode": "\\ShootingRange\\settings.py",
   "PreviewInSolutionExplorer": false
 }
